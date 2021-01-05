@@ -40,8 +40,8 @@ fi
 
 if [ "$1" = clean ]; then
 	docker rm $(docker ps -a | grep "$CONTAINER_NAME" | awk '{print $1}')
-	docker rmi $(docker image ls -a | grep "$CONTAINER_NAME" | awk '{print $1}')
-	exit 0
+	docker rmi $(docker image ls -a | grep "${CONTAINER_NAME%:*}" | awk '{print $3}')
+	exit $?
 fi
 
 echo "Error: unknown parameter"
