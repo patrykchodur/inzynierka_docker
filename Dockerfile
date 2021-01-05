@@ -20,7 +20,7 @@ WORKDIR /home/root
 # DOWNLOADING AND SETTING WIRESHARK
 RUN if ! [ -d wireshark ]; then git clone https://gitlab.com/wireshark/wireshark.git wireshark; fi
 # change tag for different version of wireshark
-RUN git -C wireshark checkout tags/wireshark${WIRESHARK_VERSION}
+RUN git -C wireshark checkout tags/wireshark-${WIRESHARK_VERSION}
 
 # DOWNLOADING AND SETTING PLUGIN
 RUN if ! [ -d projekt_gemroc ]; then git clone https://github.com/patrykchodur/inzynierka.git projekt_gemroc; fi
